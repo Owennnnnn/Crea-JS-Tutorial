@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script src="https://raw.githack.com/Owennnnnn/crea.min.js/master/crea.min.js"></script>
+		<script>
+			var username = 'ENTER_USERNAME_HERE';
+			var password = 'ENTER_PASSWORD_HERE'; 
+			var link = 'https://creary.net/crea/@literalypotato/crea-js-tutorial-broadcasting-votes';
+			var lonk = link.replace('@', '');
+			var linkSpl = lonk.split("/", 6);
+			var wif = crea.auth.toWif(username, password, 'posting');
+
+			function vote(){
+				crea.broadcast.vote(wif, username, linkSpl[4], linkSpl[5], 10000, function(err, result){
+				console.log(err, result)
+			})
+	}
+</script>
+	<body>
+		Hello!
+		<button onclick="vote()">Vote</button>
+	</body>
+</html>
